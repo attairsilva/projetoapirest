@@ -64,13 +64,20 @@ Upload e gerenciamento de fotografias dos servidores.
    docker-compose up -d
    ```
 
+4. Para encerrar os contêineres, com Docker Compose:
+   ```sh
+   docker-compose down
+   ```
 
-## 🚀 Caminhos 
-   A API estará disponível em `http://127.0.0.1:8000`
-   Minio ObjectSore em `http://127.0.0.1:9001`
+
+## 🚀 CAMINNHOS DA API
+
+   A API estará disponível em `http://127.0.0.1:8000` e funcionará para os métodos GET, POST, PUT e DELETE conforme documentção.
+
+   Minio ObjectSore em `http://127.0.0.1:9001` acesso pelo navegador.
 
 
-## 🚀 Observações a respeito das configuração
+## 🚀 OBSERVAÇÃO ENDPOINT MINIO
 
    O Minio esta habilitado com os endpoints abaixo
 
@@ -83,20 +90,26 @@ Upload e gerenciamento de fotografias dos servidores.
 
    Iniciar os containers em Docker:
 
-   ```  docker-compose up --build -d ``` 
+   ```  
+   docker-compose up --build -d 
+   ``` 
    Executa os containers
    '--build' constroi as imagens definida no docker-compose.yml
    '-d' pede que a execução ocorra em segundo plano (opcional)
 
    Para os containers em Docker:
-   ```   docker-compose down -v      ``` 
+   ```   
+      docker-compose down -v     
+       ``` 
    '-v' opcional (a não ser que deseje remover os volumes)
    A ação para e remove os contêineres, redes criadas, volumes nomeados no arquivo docker-compose.yml.
-   
+
 
 ## 🚀  Comandos que podem ser necessários (obs: com container em execução):
 
-   ``` docker-compose exec app php artisan migrate:fresh --seed ```
+   ``` 
+   docker-compose exec app php artisan migrate:fresh --seed 
+   ```
    O migrate:fresh apaga todas as tabelas e recria do zero o banco de dados antes de rodar os seeders, o seeders preenche o banco automático com dados aleatórios. Para não preencher o banco e mante-lo vazio voce pode subtrair o '--seed'
 
    No projeto está mantida a rota '/api/auth/registrar' para registrar um novo usuário para os casos de reset do banco:

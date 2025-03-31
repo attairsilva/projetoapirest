@@ -84,12 +84,14 @@ Upload e gerenciamento de fotografias dos servidores.
    cd projetoapirest
    ```
 
-3. Suba os contêineres com Docker Compose:
+2. Em /src, renomei o '.env.renomeie' para '.env', talvez seja preciso incluir uma nova chave para o Laravel.
+
+4. Suba os contêineres com Docker Compose:
    ```sh
    docker-compose up -d
    ```
 
-4. Para encerrar os contêineres, com Docker Compose:
+5. Para encerrar os contêineres, com Docker Compose:
    ```sh
    docker-compose down
    ```
@@ -110,22 +112,21 @@ Upload e gerenciamento de fotografias dos servidores.
    AWS_ENDPOINT_ENVIA=http://minio:9000
    ```
 
-## 🚀 Observações a respeito do Docker
+## 🚀 Observações a respeito dos comandos para iniciar e finalizar o Docker
 
    Iniciar os containers em Docker:
 
    ```  
-   docker-compose up --build -d 
+       docker-compose up --build -d 
    ``` 
-   Executa os containers
-   '--build' constroi as imagens definida no docker-compose.yml
-   '-d' pede que a execução ocorra em segundo plano (opcional)
+   "--build" constroi as imagens definida no docker-compose.yml
+   "-d" pede que a execução ocorra em segundo plano (opcional)
 
-   Para os containers em Docker:
+
    ```   
       docker-compose down -v     
-       ``` 
-   '-v' opcional (a não ser que deseje remover os volumes)
+   ``` 
+   "-v" opcional (a não ser que deseje remover os volumes)
    A ação para e remove os contêineres, redes criadas, volumes nomeados no arquivo docker-compose.yml.
 
 
@@ -136,7 +137,7 @@ Upload e gerenciamento de fotografias dos servidores.
    ```
    O migrate:fresh apaga todas as tabelas e recria do zero o banco de dados antes de rodar os seeders, o seeders preenche o banco automático com dados aleatórios. Para não preencher o banco e mante-lo vazio voce pode subtrair o '--seed'
 
-   No projeto está mantida a rota '/api/auth/registrar' para registrar um novo usuário para os casos de reset do banco:
+   No projeto está mantida a rota "/api/auth/registrar" para registrar um novo usuário para os casos de reset do banco:
 
    ```
       {

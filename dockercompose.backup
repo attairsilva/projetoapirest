@@ -1,0 +1,68 @@
+ 
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+      - minio
+    environment:
+      - UPLOAD_DIR=/var/www/html/storage
+      - TZ=America/Cuiaba
+    networks:
+      - app_network 
+ 
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: app_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      TZ: America/Cuiaba   # Definir o fuso horário
+      PGTZ: America/Cuiaba  # Define o timezone do PostgreSQL
+      
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./bancodedados:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+
+    networks:
+      - app_network 
+      
+
+  minio:
+    image: minio/minio
+    container_name: minio_storage
+    restart: always
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: adminpassword
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server --console-address ":9001" /data
+    volumes:
+      - miniodata:/data
+    networks:
+      - app_network 
+
+volumes:
+  pgdata:
+  miniodata:
+
+
+networks:
+  app_network:
+    driver: bridge  
+    # rede compartilhada

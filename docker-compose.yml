@@ -1,0 +1,56 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app
+    restart: always
+    
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+      - /etc/localtime:/etc/localtime:ro 
+    depends_on:
+      - db
+      - minio
+    environment:
+      - UPLOAD_DIR=/var/www/html/storage
+      - TZ=America/Cuiaba
+      
+
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: app_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      TZ: America/Cuiaba
+      PGTZ: America/Cuiaba
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data  
+
+
+  minio:
+    image: minio/minio
+    container_name: minio_storage
+    restart: always
+    environment:
+      TZ: America/Cuiaba
+      PGTZ: America/Cuiaba
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: adminpassword
+     
+    ports:
+      - "9000:9000"
+      - "9001:9001" # Painel do MinIO
+    command: server  /data --console-address ":9001"
+    volumes:
+      - ./miniodata:/data
+      - /etc/localtime:/etc/localtime:ro   
+      

@@ -46,6 +46,29 @@ Gerenciamento das unidades organizacionais.
 Upload e gerenciamento de fotografias dos servidores.
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">📄 Documentação do Upload de Fotografias</a>
 
+## ⚙️ Pré-requisitos
+
+1. Docker:
+
+   Verifique se o Docker está instalado, se for Windows, execute os seguintes comandos no PowerShell:
+   ```docker --version
+      docker-compose --version
+   ```
+   Se o Docker não estiver instalado, baixe e instale o Docker Desktop.
+
+2. WSL 2 (Windows 10/11):
+
+   Habilite o WSL 2, essencial para o Docker Desktop. Se não estiver instalado, execute o seguinte comando no PowerShell:
+   ```wsl --install
+   ```
+   Em seguida, execute:
+   ```Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+   ```
+
+3. Composer:
+
+   Instale e configure, se windows: https://getcomposer.org/Composer-Setup.exe 
+   Não esqueça de configurar a varável de ambiente.
 
 ## 🚀 Como Executar o Projeto
 
@@ -68,7 +91,6 @@ Upload e gerenciamento de fotografias dos servidores.
    ```sh
    docker-compose down
    ```
-
 
 ## 🚀 CAMINNHOS DA API
 

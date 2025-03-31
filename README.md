@@ -49,7 +49,7 @@ Upload e gerenciamento de fotografias dos servidores.
 
 ## ⚙️ Pré-requisitos
 
-1. Docker:
+1. Docker & Docker-Compose:
 
    Verifique se o Docker está instalado, se for Windows, execute os seguintes comandos no PowerShell:
    ```
@@ -58,6 +58,7 @@ Upload e gerenciamento de fotografias dos servidores.
 
    ```
    Se o Docker não estiver instalado, baixe e instale o Docker Desktop.
+   Se o Docker-Compose não estiver instalado, baixe e instale (não esqueça da variável de ambiente - Windows - https://getcomposer.org/Composer-Setup.exe )
 
 2. WSL 2 (Windows 10/11):
 
@@ -70,10 +71,6 @@ Upload e gerenciamento de fotografias dos servidores.
       Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
 
-3. Composer:
-
-   Instale e configure, se windows: https://getcomposer.org/Composer-Setup.exe 
-   Não esqueça de configurar a varável de ambiente.
 
 ## 🚀 Como Executar o Projeto
 

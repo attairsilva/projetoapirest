@@ -18,34 +18,33 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 - `docker-compose.yml` - Configuração do ambiente Docker
 - `Dockerfile` - Configuração do contêiner da aplicação
 - `vendor/` - Dependências do Laravel
-
-## 🔑 Autenticação
+##  Autenticação
 
 A API utiliza autenticação baseada em **JWT (JSON Web Tokens)**. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições.
 
-[📄 Documentação da Autenticação](https://documenter.getpostman.com/view/41683423/2sB2cRC4R4)
+[ Documentação da Autenticação](https://documenter.getpostman.com/view/41683423/2sB2cRC4R4){target="_blank"}
 
-## 📌 Funcionalidades Principais
+##  Funcionalidades Principais
 
-### 📍 Lotação
+###  Lotação
 Gerenciamento das lotações dos servidores.
-[📄 Documentação da Lotação](https://documenter.getpostman.com/view/41683423/2sB2cRC4R5)
+[ Documentação da Lotação](https://documenter.getpostman.com/view/41683423/2sB2cRC4R5){target="_blank"}
 
-### 👤 Servidor Efetivo
+###  Servidor Efetivo
 Gerenciamento dos servidores efetivos.
-[📄 Documentação do Servidor Efetivo](https://documenter.getpostman.com/view/41683423/2sB2cRC4VM)
+[ Documentação do Servidor Efetivo](https://documenter.getpostman.com/view/41683423/2sB2cRC4VM){target="_blank"}
 
 ### ⏳ Servidor Temporário
 Gerenciamento dos servidores temporários.
-[📄 Documentação do Servidor Temporário](https://documenter.getpostman.com/view/41683423/2sB2cRC4VN)
+[ Documentação do Servidor Temporário](https://documenter.getpostman.com/view/41683423/2sB2cRC4VN){target="_blank"}
 
-### 🏢 Unidade
+###  Unidade
 Gerenciamento das unidades organizacionais.
-[📄 Documentação da Unidade](https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ)
+[ Documentação da Unidade](https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ){target="_blank"}
 
-### 📷 Upload de Fotografias
+###  Upload de Fotografias
 Upload e gerenciamento de fotografias dos servidores.
-[📄 Documentação do Upload de Fotografias](https://documenter.getpostman.com/view/41683423/2sB2cRC4VS)
+[ Documentação do Upload de Fotografias](https://documenter.getpostman.com/view/41683423/2sB2cRC4VS){target="_blank"}
 
 ## 🚀 Como Executar o Projeto
 

@@ -52,18 +52,22 @@ Upload e gerenciamento de fotografias dos servidores.
 1. Docker:
 
    Verifique se o Docker está instalado, se for Windows, execute os seguintes comandos no PowerShell:
-   ```docker --version
+   ```
+      docker --version
       docker-compose --version
+
    ```
    Se o Docker não estiver instalado, baixe e instale o Docker Desktop.
 
 2. WSL 2 (Windows 10/11):
 
    Habilite o WSL 2, essencial para o Docker Desktop. Se não estiver instalado, execute o seguinte comando no PowerShell:
-   ```wsl --install
+   ```
+      wsl --install
    ```
    Em seguida, execute:
-   ```Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+   ```
+      Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
 
 3. Composer:

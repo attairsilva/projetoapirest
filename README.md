@@ -18,33 +18,34 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 - `docker-compose.yml` - Configuração do ambiente Docker
 - `Dockerfile` - Configuração do contêiner da aplicação
 - `vendor/` - Dependências do Laravel
-##  Autenticação
+## 🔑 Autenticação
 
 A API utiliza autenticação baseada em **JWT (JSON Web Tokens)**. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições.
 
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank"> Documentação da Autenticação</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
 
-##  Funcionalidades Principais
+## 📌 Funcionalidades Principais
 
-###  Lotação
+### 📍 Lotação
 Gerenciamento das lotações dos servidores.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank"> Documentação da Lotação</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">📄 Documentação da Lotação</a>
 
-###  Servidor Efetivo
+### 👤 Servidor Efetivo
 Gerenciamento dos servidores efetivos.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank"> Documentação do Servidor Efetivo</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank">📄 Documentação do Servidor Efetivo</a>
 
 ### ⏳ Servidor Temporário
 Gerenciamento dos servidores temporários.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank"> Documentação do Servidor Temporário</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">📄 Documentação do Servidor Temporário</a>
 
-###  Unidade
+### 🏢 Unidade
 Gerenciamento das unidades organizacionais.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank"> Documentação da Unidade</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">📄 Documentação da Unidade</a>
 
-###  Upload de Fotografias
+### 📷 Upload de Fotografias
 Upload e gerenciamento de fotografias dos servidores.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank"> Documentação do Upload de Fotografias</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">📄 Documentação do Upload de Fotografias</a>
+
 
 ## 🚀 Como Executar o Projeto
 

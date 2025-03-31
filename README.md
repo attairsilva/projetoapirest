@@ -22,29 +22,29 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 
 A API utiliza autenticação baseada em **JWT (JSON Web Tokens)**. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições.
 
-[ Documentação da Autenticação](https://documenter.getpostman.com/view/41683423/2sB2cRC4R4){target="_blank"}
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank"> Documentação da Autenticação</a>
 
 ##  Funcionalidades Principais
 
 ###  Lotação
 Gerenciamento das lotações dos servidores.
-[ Documentação da Lotação](https://documenter.getpostman.com/view/41683423/2sB2cRC4R5){target="_blank"}
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank"> Documentação da Lotação</a>
 
 ###  Servidor Efetivo
 Gerenciamento dos servidores efetivos.
-[ Documentação do Servidor Efetivo](https://documenter.getpostman.com/view/41683423/2sB2cRC4VM){target="_blank"}
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank"> Documentação do Servidor Efetivo</a>
 
 ### ⏳ Servidor Temporário
 Gerenciamento dos servidores temporários.
-[ Documentação do Servidor Temporário](https://documenter.getpostman.com/view/41683423/2sB2cRC4VN){target="_blank"}
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank"> Documentação do Servidor Temporário</a>
 
 ###  Unidade
 Gerenciamento das unidades organizacionais.
-[ Documentação da Unidade](https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ){target="_blank"}
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank"> Documentação da Unidade</a>
 
 ###  Upload de Fotografias
 Upload e gerenciamento de fotografias dos servidores.
-[ Documentação do Upload de Fotografias](https://documenter.getpostman.com/view/41683423/2sB2cRC4VS){target="_blank"}
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank"> Documentação do Upload de Fotografias</a>
 
 ## 🚀 Como Executar o Projeto
 

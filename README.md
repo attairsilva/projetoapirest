@@ -98,7 +98,7 @@ Upload e gerenciamento de fotografias dos servidores.
 
 ## 🚀 CAMINNHOS DA API
 
-   A API estará disponível em `http://127.0.0.1:8000` e funcionará para os métodos GET, POST, PUT e DELETE conforme documentção.
+   A API estará disponível em `http://127.0.0.1:8000` e funcionará para os métodos GET, POST, PUT e DELETE conforme documentção. (POSTMAN)
 
    Minio ObjectSore em `http://127.0.0.1:9001` acesso pelo navegador.
 

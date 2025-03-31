@@ -32,16 +32,20 @@ RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
     && chmod +x /usr/local/bin/mc \
     && ls -l /usr/local/bin/
     
-# Copia os arquivos do projeto para o contêiner
-COPY src/ /var/www/html
+# # Copia os arquivos do projeto para o contêiner
+# COPY src/ /var/www/html
 
 # Permissões corretas
 RUN chown -R www-data:www-data /var/www/html
 
-# Define permissões
+# Cria o diretório e define permissões
 RUN mkdir -p /var/www/html/.mc && \
     chown -R root:root /var/www/html/.mc && \
     chmod 700 /var/www/html/.mc
+
+# # Variável de ambiente do MinIO Client
+# ENV MC_CONFIG_DIR=/var/www/html/.mc
+
 
 WORKDIR /var/www/html
 

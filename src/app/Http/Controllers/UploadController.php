@@ -155,9 +155,9 @@ class UploadController extends Controller
         $cod = 200;
         foreach ($arquivos as $file) {
             try {
-                // Agora passamos diretamente o arquivo para a função de armazenamento
-                $caminhoArquivo = armazenarArquivoPersonalizadoV4($file, 'arquivos');
-
+                //  arquivo para a função de armazenamento
+               // $caminhoArquivo = armazenarArquivoPersonalizadoV4($file, 'arquivos');
+               $caminhoArquivo=False;
                 if (!$caminhoArquivo) {
                     $cne++;
                     $erros[] = "Erro enviando arquivo [$cne]";

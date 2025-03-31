@@ -13,14 +13,12 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 ## 📂 Estrutura do Projeto
 
 - `src/` - Contém o código-fonte Laravel
-- `pgdata/` - Dados do banco PostgreSQL
-- `miniodata/` - Dados do MinIO
 - `docker-compose.yml` - Configuração do ambiente Docker
 - `Dockerfile` - Configuração do contêiner da aplicação
 - `vendor/` - Dependências do Laravel
 ## 🔑 Autenticação
 
-A API utiliza autenticação baseada em **JWT (JSON Web Tokens)**. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições.
+A API utiliza autenticação. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições.
 
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
 
@@ -84,7 +82,7 @@ Upload e gerenciamento de fotografias dos servidores.
    cd projetoapirest
    ```
 
-2. Em /src, renomei o '.env.renomeie' para '.env', talvez seja preciso incluir uma nova chave para o Laravel.
+2. Em /src, renomei o '.env.renomeie' para '.env'.
 
 4. Suba os contêineres com Docker Compose:
    ```sh
@@ -96,25 +94,16 @@ Upload e gerenciamento de fotografias dos servidores.
    docker-compose down
    ```
 
-## 🚀 CAMINNHOS DA API
+## 🚀 ACESSAR A API
 
    A API estará disponível em `http://127.0.0.1:8000` e funcionará para os métodos GET, POST, PUT e DELETE conforme documentção. (POSTMAN)
 
    Minio ObjectSore em `http://127.0.0.1:9001` acesso pelo navegador.
 
 
-## 🚀 OBSERVAÇÃO ENDPOINT MINIO
+## 🚀 E SE EU PRECISAR RECRIAR AS IMAGENS DO CONTAINER?!
 
-   O Minio esta habilitado com os endpoints abaixo
-
-   ```
-   AWS_ENDPOINT=http://localhost:9000
-   AWS_ENDPOINT_ENVIA=http://minio:9000
-   ```
-
-## 🚀 Observações a respeito dos comandos para iniciar e finalizar o Docker
-
-   Iniciar os containers em Docker:
+### Docker:
 
    ```  
        docker-compose up --build -d 
@@ -125,32 +114,50 @@ Upload e gerenciamento de fotografias dos servidores.
 
    ```   
       docker-compose down -v     
-   ``` 
+   ```
    "-v" opcional (a não ser que deseje remover os volumes)
    A ação para e remove os contêineres, redes criadas, volumes nomeados no arquivo docker-compose.yml.
 
+   Quando for preciso recriar o banco de dados, execute:
+   ```
+     docker-compose exec app php artisan migrate:fresh --seed
+   ```
+   O seeder preencherá o banco com dados eleatórios.
 
-## 🚀  Comandos que podem ser necessários (obs: com container em execução):
+
+### Zerar o Banco de Dados / Recriar Banco (com Docker em execução):
 
    ``` 
    docker-compose exec app php artisan migrate:fresh --seed 
    ```
    O migrate:fresh apaga todas as tabelas e recria do zero o banco de dados antes de rodar os seeders, o seeders preenche o banco automático com dados aleatórios. Para não preencher o banco e mante-lo vazio voce pode subtrair o '--seed'
 
-   No projeto está mantida a rota "/api/auth/registrar" para registrar um novo usuário para os casos de reset do banco:
 
-   ```
-      {
-         "name": "Administrador",
-         "email": "admin@admin.com",
-         "password": "123456"
-      } 
-   ```
+### Após recriado o container Minio
 
-  
+   Se você precisou recriar o container.
+   
+   1. Acesse a área de administrador do Minio
+   
+      http://127.0.0.1:9001/ - login: admin - senha: adminpassword
+      
+      Crie o bucket 'Uploads', public ou personalize.
 
+      Gere as chaves no menu "Access Keys", copia o Access Key e o Secret Key e cole no '.env' que renomeou:
+      ```
+         AWS_ACCESS_KEY_ID=Codigo do Access Key
+         AWS_SECRET_ACCESS_KEY=Codigo do Secret Key
+      ```
 
+   2. Pare o Container
+      ``` 
+         docker-compose down -v 
+      ``` 
 
+   3. Inicie o Container
+      ```  
+         docker-compose up --build -d 
+      ``` 
 
 ---
 

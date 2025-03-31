@@ -9,8 +9,8 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - /var/www/html
-      # - /etc/localtime:/etc/localtime:ro 
+      - ./src:/var/www/html
+      - /etc/localtime:/etc/localtime:ro 
     depends_on:
       - db
       - minio
@@ -33,7 +33,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /var/lib/postgresql/data  
+      - ./pgdata:/var/lib/postgresql/data  
 
 
   minio:
@@ -52,6 +52,5 @@ services:
     command: server  /data --console-address ":9001"
     volumes:
       - ./miniodata:/data
-      # - /etc/localtime:/etc/localtime:ro  
-      
+      - /etc/localtime:/etc/localtime:ro   
       

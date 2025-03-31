@@ -11,6 +11,8 @@ use App\Models\Lotacao;
 use App\Models\ServidorTemporario;
 use App\Models\Unidade;
 use App\Models\UnidadeEndereco;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +24,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+        DB::table('users')->insert([
+            'name' => 'Administrador',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('123456'),
+        ]);
 
         # Criar 50 cidades aleatorias
         $cidades = Cidade::factory(50)->create(); # gera 100 cidades aleatorias

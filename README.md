@@ -169,7 +169,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
             }
       ```
 
-       No menu "Access Keys" na administrador do Minio, gere as chaves  e copie, substituindo no ```/src/.env```:
+       No menu "Access Keys" na administrador do Minio, gere as chaves  e copie, substituindo no  ``` /src/.env ```:
       ```
          AWS_ACCESS_KEY_ID=Codigo do Access Key
          AWS_SECRET_ACCESS_KEY=Codigo do Secret Key

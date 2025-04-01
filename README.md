@@ -21,7 +21,7 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 
 A API utiliza autenticação. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições. Cada token gerado expira em 5 (cinco) minutos.
 
-# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
+## <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
 
 ## 📌 Funcionalidades Principais
 

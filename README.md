@@ -131,7 +131,43 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    
       Acesse a área de administrador do Minio http://127.0.0.1:9001/ - login: admin - senha: adminpassword
       
-      Crie o bucket 'Uploads', public ou personalize.
+      Crie o bucket 'Uploads', public ou personalize. Recomendo utilizar a Política abaixo para o Bucket a ser criado:
+      
+      ```
+                  {
+               "Version": "2012-10-17",
+               "Statement": [
+                  {
+                        "Effect": "Allow",
+                        "Principal": {
+                           "AWS": [
+                              "*"
+                           ]
+                        },
+                        "Action": [
+                           "s3:PutObject"
+                        ],
+                        "Resource": [
+                           "arn:aws:s3:::uploads/*"
+                        ]
+                  },
+                  {
+                        "Effect": "Allow",
+                        "Principal": {
+                           "AWS": [
+                              "*"
+                           ]
+                        },
+                        "Action": [
+                           "s3:GetObject"
+                        ],
+                        "Resource": [
+                           "arn:aws:s3:::uploads/*"
+                        ]
+                  }
+               ]
+            }
+      ```
 
       Gere as chaves no menu "Access Keys", copie, acesse o /src/.env, substitua:
       ```

@@ -31,7 +31,7 @@ Esta endpoints gerencia Servidores Efetivos.
 ### 👤 Servidor Efetivo Busca pelo Nome 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM#da8ecda6-47fd-4d7d-bdb9-4b4ebf565ba5" target="_blank">Documentação</a>
 Este endpoint é usado para buscar servidores efetivos pelo nome, com paginação. O seu retorno é o endereço funcional do servidor.
 
-### ⏳ Servidor Temporário 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">Documentação</a>
+### 👤 Servidor Temporário 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">Documentação</a>
 Este endpoint para gerencia os servidores temporários.
 
 ### 👤 Servidor Efetivo Lotados em Unidade 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ#4cdc92a3-3395-4231-8f50-8c1c51d13da4" target="_blank"> Documentação</a>

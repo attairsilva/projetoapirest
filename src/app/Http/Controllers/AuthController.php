@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 // use Laravel\Sanctum\PersonalAccessToken;
 use Illuminate\Validation\ValidationException;
+use Exception;
 
 
 
@@ -51,7 +52,7 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-
+        try{
             $request->validate([
                 'email' => 'required|email',
                 'password' => 'required',
@@ -83,6 +84,12 @@ class AuthController extends Controller
                 'token_type' => 'Bearer',
                 'expires_in' => 300, // 5 minutos
             ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => 'Erro ao processar. Verifique se existe um usuario com estes dados apto a conexão.'
+            ], 401);
+        }
+
 
     }
 

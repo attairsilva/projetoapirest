@@ -8,40 +8,41 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 - **PostgreSQL** - Banco de dados relacional
 - **MinIO** - Armazenamento de objetos compatível com S3
 - **Docker** - Contêineres para ambiente isolado
-- **Postman** - Documentação e testes das rotas
 
 ## 📂 Estrutura do Projeto
 
+- `miniodata/` - Dados do Minio
 - `src/` - Contém o código-fonte Laravel
 - `docker-compose.yml` - Configuração do ambiente Docker
 - `Dockerfile` - Configuração do contêiner da aplicação
+- `apache-laravel.conf` - Configuração personalizada apache
 - `vendor/` - Dependências do Laravel
 ## 🔑 Autenticação
 
-A API utiliza autenticação. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições.
+A API utiliza autenticação. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições. Cada token gerado expira em 5 (cinco) minutos.
 
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
 
 ## 📌 Funcionalidades Principais
 
 ### 📍 Lotação
-Gerenciamento das lotações dos servidores.
+Endpoint - Gerenciamento das lotações dos servidores.
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">📄 Documentação da Lotação</a>
 
 ### 👤 Servidor Efetivo
-Gerenciamento dos servidores efetivos.
+Endpoint - Gerenciamento dos servidores efetivos.
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank">📄 Documentação do Servidor Efetivo</a>
 
 ### ⏳ Servidor Temporário
-Gerenciamento dos servidores temporários.
+Endpoint - Gerenciamento dos servidores temporários.
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">📄 Documentação do Servidor Temporário</a>
 
 ### 🏢 Unidade
-Gerenciamento das unidades organizacionais.
+Endpoint - Gerenciamento das unidades organizacionais.
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">📄 Documentação da Unidade</a>
 
 ### 📷 Upload de Fotografias
-Upload e gerenciamento de fotografias dos servidores.
+Endpoint - Upload e gerenciamento de fotografias dos servidores.
 <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">📄 Documentação do Upload de Fotografias</a>
 
 
@@ -135,7 +136,7 @@ Upload e gerenciamento de fotografias dos servidores.
 
 ### Após recriado o container Minio
 
-   Se você precisou recriar o container.
+   Se você apagou a pasta 'miniodata', crie novamente, e inicio o container.
    
    1. Acesse a área de administrador do Minio
    

@@ -27,23 +27,28 @@ A API utiliza autenticação. Para acessar os endpoints protegidos, é necessár
 
 ### 📍 Lotação
 Endpoint - Gerenciamento das lotações dos servidores.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">📄 Documentação da Lotação</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">
+📄 Documentação da Lotação</a>
 
 ### 👤 Servidor Efetivo
 Endpoint - Gerenciamento dos servidores efetivos.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank">📄 Documentação do Servidor Efetivo</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank">
+📄 Documentação do Servidor Efetivo</a>
 
 ### ⏳ Servidor Temporário
 Endpoint - Gerenciamento dos servidores temporários.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">📄 Documentação do Servidor Temporário</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">
+📄 Documentação do Servidor Temporário</a>
 
 ### 🏢 Unidade
 Endpoint - Gerenciamento das unidades organizacionais.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">📄 Documentação da Unidade</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">
+📄 Documentação da Unidade</a>
 
 ### 📷 Upload de Fotografias
 Endpoint - Upload e gerenciamento de fotografias dos servidores.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">📄 Documentação do Upload de Fotografias</a>
+<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">
+📄 Documentação do Upload de Fotografias</a>
 
 
 ## ⚙️ Pré-requisitos

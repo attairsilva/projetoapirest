@@ -21,33 +21,38 @@ Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implem
 
 A API utiliza autenticação. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições. Cada token gerado expira em 5 (cinco) minutos.
 
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
+# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R4" target="_blank">📄 Documentação da Autenticação</a>
 
 ## 📌 Funcionalidades Principais
 
 ### 📍 Lotação
 Endpoint - Gerenciamento das lotações dos servidores.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">
+
+# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">
 📄 Documentação da Lotação</a>
 
 ### 👤 Servidor Efetivo
 Endpoint - Gerenciamento dos servidores efetivos.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank">
+
+# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VM" target="_blank">
 📄 Documentação do Servidor Efetivo</a>
 
 ### ⏳ Servidor Temporário
 Endpoint - Gerenciamento dos servidores temporários.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">
+
+# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VN" target="_blank">
 📄 Documentação do Servidor Temporário</a>
 
 ### 🏢 Unidade
 Endpoint - Gerenciamento das unidades organizacionais.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">
+
+# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">
 📄 Documentação da Unidade</a>
 
 ### 📷 Upload de Fotografias
 Endpoint - Upload e gerenciamento de fotografias dos servidores.
-<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">
+
+# <a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">
 📄 Documentação do Upload de Fotografias</a>
 
 

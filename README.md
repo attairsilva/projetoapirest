@@ -40,10 +40,10 @@ Este endpoint é usado para listar os servidores efetivos lotados em uma unidade
 ### 🏢 Unidade 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VQ" target="_blank">Documentação</a>
 Endpoint para gerenciamento das unidades organizacionais.
 
-### 📍 Lotação 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">Documentação da Lotação</a>
+### 📍 Lotação 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4R5" target="_blank">Documentação</a>
 Esta endpoints que gerencia as lotações dos servidores. 
 
-### 📷 Upload de Fotografias 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank"></a>
+### 📷 Upload de Fotografias 📄<a href="https://documenter.getpostman.com/view/41683423/2sB2cRC4VS" target="_blank">Documentação</a>
 Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servidores Efetivos e Temporários. Envio de fotografia, deleção, recuperação com links temporários. 
 
 
@@ -72,7 +72,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```
 
 
-## 🚀 Como Executar o Projeto
+## 📌 Como Executar o Projeto
 
 1. Clone o repositório:
    ```sh
@@ -96,70 +96,52 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    docker-compose down
    ```
 
-## 🚀 ACESSAR A API
+## 📌  ACESSAR A API
 
    A API estará disponível em `http://127.0.0.1:8000` e funcionará para os métodos GET, POST, PUT e DELETE conforme documentção. (POSTMAN)
 
    Minio ObjectSore em `http://127.0.0.1:9001` acesso pelo navegador.
 
+    Documentação completa de uso da API estão nas primeiras instruções dete Readme.
 
-## 🚀 E SE EU PRECISAR RECRIAR AS IMAGENS DO CONTAINER?!
+
+### 🚀 Recriando Containers
+
+   Abaixo estão comendos para apagar volumes e recriar imagens. Este procedimento pode fazer com que sejam necessários ajustar as configurações novamente para que a API funcione. Alguns constam abaixo:
 
 ### Docker:
 
-   ```  
-       docker-compose up --build -d 
-   ``` 
-   "--build" constroi as imagens definida no docker-compose.yml
-   "-d" pede que a execução ocorra em segundo plano (opcional)
+   1. Ecerrando Docker
+      ```   
+         docker-compose down -v     
+      ```
+      "-v" opcional (a não ser que deseje remover os volumes)
+      A ação para e remove os contêineres, redes criadas, volumes nomeados no arquivo docker-compose.yml.
 
+   2. Iniciando Docker com docker-compos.yml
+      ```  
+         docker-compose up --build -d 
+      ``` 
+      "--build" constroi as imagens definida no docker-compose.yml
+      "-d" pede que a execução ocorra em segundo plano (opcional)
 
-   ```   
-      docker-compose down -v     
-   ```
-   "-v" opcional (a não ser que deseje remover os volumes)
-   A ação para e remove os contêineres, redes criadas, volumes nomeados no arquivo docker-compose.yml.
+   3. Quando for preciso recriar o banco de dados, execute:
+      ```
+      docker-compose exec app php artisan migrate:fresh --seed
+      ```
+      O migrate:fresh apaga todas as tabelas e recria do zero o banco de dados antes de rodar os seeders, o seeders preenche o banco automático com dados aleatórios. Para não preencher o banco e mante-lo vazio voce pode subtrair o '--seed'
 
-   Quando for preciso recriar o banco de dados, execute:
-   ```
-     docker-compose exec app php artisan migrate:fresh --seed
-   ```
-   O seeder preencherá o banco com dados eleatórios.
-
-
-### Zerar o Banco de Dados / Recriar Banco (com Docker em execução):
-
-   ``` 
-   docker-compose exec app php artisan migrate:fresh --seed 
-   ```
-   O migrate:fresh apaga todas as tabelas e recria do zero o banco de dados antes de rodar os seeders, o seeders preenche o banco automático com dados aleatórios. Para não preencher o banco e mante-lo vazio voce pode subtrair o '--seed'
-
-
-### Após recriado o container Minio
-
-   Se você apagou a pasta 'miniodata', crie novamente, e inicio o container.
+   4. Se você apagou a pasta 'miniodata', crie novamente, e inicio o container.
    
-   1. Acesse a área de administrador do Minio
-   
-      http://127.0.0.1:9001/ - login: admin - senha: adminpassword
+      Acesse a área de administrador do Minio http://127.0.0.1:9001/ - login: admin - senha: adminpassword
       
       Crie o bucket 'Uploads', public ou personalize.
 
-      Gere as chaves no menu "Access Keys", copia o Access Key e o Secret Key e cole no '.env' que renomeou:
+      Gere as chaves no menu "Access Keys", copie, acesse o /src/.env, substitua:
       ```
          AWS_ACCESS_KEY_ID=Codigo do Access Key
          AWS_SECRET_ACCESS_KEY=Codigo do Secret Key
       ```
-
-   2. Pare o Container
-      ``` 
-         docker-compose down -v 
-      ``` 
-
-   3. Inicie o Container
-      ```  
-         docker-compose up --build -d 
-      ``` 
 
 ---
 

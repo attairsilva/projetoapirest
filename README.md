@@ -1,6 +1,6 @@
-# Projeto API REST em Laravel
+# Projeto API REST em PhP 
 
-Bem-vindo ao **Projeto API REST em Laravel**! Este repositório contém a implementação de uma API desenvolvida em Laravel para gerenciamento de servidores, unidades e lotações.
+Este repositório contém a implementação de uma API desenvolvida em Laravel para gerenciamento de servidores, unidades e lotações.
 
 ## 📌 Tecnologias Utilizadas
 

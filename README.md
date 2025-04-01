@@ -96,12 +96,10 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    docker-compose down
    ```
 
-### 📌  ACESSAR A API
+### 📌  USO DA API
 
    A API estará disponível em `http://127.0.0.1:8000` e funcionará para os métodos GET, POST, PUT e DELETE conforme documentção. (POSTMAN)
-
    Minio ObjectSore em `http://127.0.0.1:9001` acesso pelo navegador.
-
    Documentação completa de uso da API estão nas primeiras instruções dete Readme.
 
 

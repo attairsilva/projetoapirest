@@ -121,7 +121,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       "--build" constroi as imagens definida no docker-compose.yml
       "-d" pede que a execução ocorra em segundo plano (opcional)
 
-   3. Quando for preciso recriar o banco de dados, execute:
+   3. Quando for preciso recriar o banco de dados, execute, quando o contair estiver ativo, o comando abaixo, que acessa o containr e executa o ```php artisan migrate:fresh --seed``` :
       ```
       docker-compose exec app php artisan migrate:fresh --seed
       ```

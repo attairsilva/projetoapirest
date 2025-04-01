@@ -107,8 +107,6 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    Abaixo estão comendos para apagar volumes e recriar imagens. Este procedimento pode fazer com que sejam necessários ajustar as configurações novamente para que a API funcione. Alguns constam abaixo:
 
-### Docker:
-
    1. Ecerrando Docker
       ```   
          docker-compose down -v     

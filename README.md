@@ -140,7 +140,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```
       curl -fsSL https://get.docker.com -o get-docker.sh
       sudo sh get-docker.sh
-    ```
+   ```
 
    Execute o comando abaixo para realizar a instsalação do Docker-Compose:
    ```

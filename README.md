@@ -12,7 +12,9 @@ CPF: 692.7*****-34
 - **Laravel** - Framework PHP para desenvolvimento backend
 - **PostgreSQL** - Banco de dados relacional
 - **MinIO** - Armazenamento de objetos compatível com S3
-- **Docker** - Contêineres para ambiente isolado
+- **Docker** - Contêineres, na versão 27.5.1
+- **Docker Compose** - Na versão 2.32.4
+
 
 ## 📂 Estrutura do Projeto
 
@@ -142,9 +144,19 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       sudo sh get-docker.sh
    ```
 
-   Execute o comando abaixo para realizar a instsalação do Docker-Compose:
+   Execute o comando abaixo para realizar a instsalação do Docker-Compose na versão 2.32.4 ou superior:
    ```
-      sudo apt install docker-compose
+      sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   ```
+
+   Interessante criar links simbólicos para evitar erros de caminho ao executar docker-compose:
+   ```
+      sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   ```
+
+   É preciso aplicar permissões:
+   ```
+      sudo chmod +x /usr/local/bin/docker-compose
    ```
 
    Execute os comandos abaixo para certificar que foram instalados:
@@ -166,7 +178,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       git clone https://github.com/attairsilva/projetoapirest.git 
    ```
 
-   Acesse o diretório do projeto:
+   Acesse o diretório  criado dentro de projeto:
    ```
       cd projetoapirest
    ```
@@ -186,12 +198,12 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell``` executando:
    ```
-   docker-compose up -d
+   sudo docker-compose up -d
    ```
 
 5. Para encerrar os contêineres, com Docker Compose:
    ```
-   docker-compose down
+   sudo docker-compose down
    ```
 
 ### 📌  USO DA API

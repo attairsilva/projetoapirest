@@ -56,7 +56,9 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 1. Docker & Docker-Compose:
 
-   No ambiente Windows, verifique se o Docker e o Docker-Compose está instalado, execute os seguintes comandos no  ```PowerShell```:
+   # No ambiente Windows
+   
+   Verifique se o Docker e o Docker-Compose está instalado, execute os seguintes comandos no  ```PowerShell```:
    ```
       docker --version
       docker-compose --version
@@ -72,20 +74,35 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```
       wsl --install
    ```
-   Caso encontre um erro, é poque exigiu  habilitar os recursos de 'Plataforma de Máquina Virtual do Windows', existem instruções mais detalhadas em https://aka.ms/wsl2-install.  Porém, execute o comando abaixo:
+
+   Caso encontre um erro, é poque exigiu que  habilite os recursos de 'Máquina Virtual do Windows', existem instruções mais detalhadas em https://aka.ms/wsl2-install. 
+   
+   Verifique se a virtualização na BIOS de seu equipamento está ativada, e depois habilite o Virtual Machine Platform no Windows, execute ```PowerShell``` o comandos:
+
+   ```
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+   ```
+   
+   ```
+      dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
+   ```
+
+   Não obtendo sucesso, pode ser que sua versão do Windows não cumpre os requisitos para o Hyper-V, é necessário uma versão que suporte.
+
+   Se tudo correu bem, execute no ```PowerShell``` o seguinte comando:
 
    ```
       Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
-
-   Pode ser necessário reiniciar o sistema para que surta efeito, porém tente: ```wsl --install --no-distribution```.
+   
+   E execute novamente: ```wsl --install``` 
 
    Depois de resolver a habilitação do WLS, instale o Docker-Compose, no ```PowerShell``` em modo administrador e execute o seguinte comando:
+
    ```
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe
    ```
 
-   Pode ser necessário reiniciar o sistema 
 
 ## 📌 Como Baixar e Executar o Projeto
 
@@ -103,7 +120,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 3. Inicie o ```Docker Desktop``` antes de prosseguir.
 
-4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell```:
+4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell``` executando:
    ```
    docker-compose up -d
    ```

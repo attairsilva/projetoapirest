@@ -107,12 +107,12 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    O cabeçalho deve conter dados de login conforme documentação.
    Existe um usuário padrão já preenchido pelo seeder:
-   Usuário: admin@admin.com.br
-   Senha: 123456
+   ```Usuário: admin@admin.com.br```
+   ```Senha: 123456```
 
    Quanto ao Minio ObjectSore está disponível em `http://127.0.0.1:9001` acesso pelo navegador.
-   Usuário: admin
-   Senha: adminpassword
+   ```Usuário: admin```
+   ```Senha: adminpassword```
 
    A documentação completa de uso da API estão nas primeiras instruções dete Readme.
 

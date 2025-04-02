@@ -58,11 +58,10 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    # No ambiente Windows
    
-   Verifique se o Docker e o Docker-Compose está instalado, execute os seguintes comandos no  ```PowerShell```:
+   Verifique se o Docker está instalado, execute o seguinte comandos no  ```PowerShell```:
    ```
       docker --version
-      docker-compose --version
-
+     
    ```
     
    Se o Docker não estiver instalado, baixe e instale o Docker Desktop.
@@ -70,7 +69,12 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       https://docs.docker.com/desktop/setup/install/windows-install/
    ```
 
-   Após instalado, abra o ```PowerShell``` em modo administrador e execute: 
+   Agora verifique se o docker-compose foi instalado, execute o seguinte comandos no  ```PowerShell```:
+   ```
+       docker-compose --version
+   ```
+
+   Durante a instalação do Docker Desktop, se deixou marcado WSL no instalador, tudo está certo, porém podem ocorrer problemas com o WSL em razão da necessidade de virtualização e do Hyper-V, e se este é o seu caso, abra o ```PowerShell``` em modo administrador e execute: 
    ```
       wsl --install
    ```

@@ -56,48 +56,56 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 1. Docker & Docker-Compose:
 
-   Verifique se o Docker está instalado, se for Windows, execute os seguintes comandos no PowerShell:
+   No ambiente Windows, verifique se o Docker e o Docker-Compose está instalado, execute os seguintes comandos no  ```PowerShell```:
    ```
       docker --version
       docker-compose --version
 
    ```
+    
    Se o Docker não estiver instalado, baixe e instale o Docker Desktop.
-   Se o Docker-Compose não estiver instalado, baixe e instale (não esqueça da variável de ambiente - Windows - https://getcomposer.org/Composer-Setup.exe )
+   ```
+      https://docs.docker.com/desktop/setup/install/windows-install/
+   ```
 
-2. WSL 2 (Windows 10/11):
-
-   Habilite o WSL 2, essencial para o Docker Desktop. Se não estiver instalado, execute o seguinte comando no PowerShell:
+   Após instalado, abra o ```PowerShell``` em modo administrador e execute: 
    ```
       wsl --install
    ```
-   Em seguida, execute:
+   Caso encontre um erro, é poque exigiu  habilitar os recursos de 'Plataforma de Máquina Virtual do Windows', existem instruções mais detalhadas em https://aka.ms/wsl2-install.  Porém, execute o comando abaixo:
+
    ```
       Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
 
+   Pode ser necessário reiniciar o sistema para que surta efeito, porém tente: ```wsl --install --no-distribution```.
+
+   Depois de resolver a habilitação do WLS, instale o Docker-Compose, no ```PowerShell``` em modo administrador e execute o seguinte comando:
+   ```
+     Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe
+   ```
 
 ## 📌 Como Executar o Projeto
 
-1. Clone o repositório:
-   ```sh
-   git clone https://github.com/attairsilva/projetoapirest.git
-   ```
+1. Baixe o repositório:
+   - https://github.com/attairsilva/projetoapirest/archive/refs/heads/main.zip
+   - Descompacte em seu computador
 
 2. Acesse a pasta do projeto:
-   ```sh
-   cd projetoapirest
+   ```
+   cd caminho_onde_descompactou\projetoapirest-main
+
    ```
 
-2. Em /src, renomei o '.env.renomeie' para '.env'.
+2. Dentro da pasta /src, renomei o '.env.renomeie' para '.env'.
 
-4. Suba os contêineres com Docker Compose:
-   ```sh
+4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell```:
+   ```
    docker-compose up -d
    ```
 
 5. Para encerrar os contêineres, com Docker Compose:
-   ```sh
+   ```
    docker-compose down
    ```
 

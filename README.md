@@ -85,7 +85,9 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe
    ```
 
-## 📌 Como Executar o Projeto
+   Pode ser necessário reiniciar o sistema 
+
+## 📌 Como Baixar e Executar o Projeto
 
 1. Baixe o repositório:
    - https://github.com/attairsilva/projetoapirest/archive/refs/heads/main.zip
@@ -99,7 +101,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 2. Dentro da pasta /src, renomei o '.env.renomeie' para '.env'.
 
-3. Execute o ```Docker Desktop```.
+3. Inicie o ```Docker Desktop``` antes de prosseguir.
 
 4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell```:
    ```

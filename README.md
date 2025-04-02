@@ -54,9 +54,9 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 ## ⚙️ Pré-requisitos
 
-1. Docker & Docker-Compose:
+   ## WINDOWS
 
-   ### No ambiente Windows
+   #### Intalando Docker e Docker-Compose:
    
    Verifique se o Docker está instalado, execute o seguinte comandos no  ```PowerShell```:
    ```
@@ -91,14 +91,14 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
    ```
 
-   Não obtendo sucesso, pode ser que sua versão do Windows não cumpre os requisitos para o Hyper-V, é necessário uma versão que suporte.
-
-   Se tudo correu bem, execute no ```PowerShell``` o seguinte comando:
-
    ```
       Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
-   Após o comando anterior, será solicitado que reinicio o computador. 
+   Após o comando anterior, será solicitado que reinicio o computador.
+
+   Se mesmo habilitando o suporte a virtualização na Bios, não obteve sucesso, pode ser que sua versão do Windows não cumpre os requisitos para o Hyper-V, é necessário uma versão que suporte.
+
+   Agora, se tudo correu bem até aqui, execute no ```PowerShell``` o seguinte comando: 
 
    No ```PowerShell```, modo administrador, execute o seguinte comando novamente: ```wsl --install``` 
 
@@ -108,14 +108,69 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe
    ```
 
+   #### Baixando o Projeto:
 
-## 📌 Como Baixar e Executar o Projeto
-
-1. Baixe o repositório:
+   Baixe o repositório do Projeto:
    - https://github.com/attairsilva/projetoapirest/archive/refs/heads/main.zip
-   - Descompacte em seu computador
+   - Descompacte em uma pasta do sistema.
 
-2. Acesse a pasta do projeto:
+
+   ## LINUX UBUNTU
+
+   #### Instalando Docker e Docker-Compose:
+
+   Utilizando o script de conveniência disponível https://get.docker.com/ para instalação de Docker (não recomendado para produçao)
+   
+   Atualiza a lista de pacotes disponíveis nos repositório:
+   ```
+      sudo apt update && sudo apt upgrade -y
+   ```
+
+   Instale o Curl se não tiver instalado
+   ```
+      sudo apt install curl:
+   ```
+
+   Instale o Curl se não tiver instalado
+   ```
+      sudo apt install curl:
+   ```
+
+   Execute o comando abaixo para realizar a instsalação:
+   ```
+      curl -fsSL https://get.docker.com -o get-docker.sh
+      sudo sh get-docker.sh
+    ```
+
+   Execute o comando abaixo para realizar a instsalação do Docker-Compose:
+   ```
+      sudo apt install docker-compose
+   ```
+
+   Execute os comandos abaixo para certificar que foram instalados:
+   ```
+      docker --version
+      docker-compose --version
+   ```
+
+   #### CLONNANDO O PROJETO COM GIT
+
+   Crie uma pasta e acesse:
+   ```
+     mkdir Projetos
+     cd Projetos
+   ```
+
+   Clone o repositório do projeto
+    ```git clone https://github.com/attairsilva/projetoapirest.git ```
+
+   Acesse o diretório do projeto
+    ```cd projetoapirest ```
+
+
+## 📌 Edições Necessárias e Execução do Docker
+
+1. Acesse a pasta do projeto:
    ```
    cd caminho_onde_descompactou\projetoapirest-main
 

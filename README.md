@@ -98,8 +98,9 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```
       Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
-   
-   E execute novamente: ```wsl --install``` 
+   Após o comando anterior, será solicitado que reinicio o computador. 
+
+   No ```PowerShell```, modo administrador, execute o seguinte comando novamente: ```wsl --install``` 
 
    Depois de resolver a habilitação do WLS, caso o ```docker-compose``` não esteja instalado, no ```PowerShell``` modo administrador execute o seguinte comando:
 

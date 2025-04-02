@@ -162,13 +162,11 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```
 
    Clone o repositório do projeto:
-
     ```
       git clone https://github.com/attairsilva/projetoapirest.git 
     ```
 
    Acesse o diretório do projeto:
-
     ```
       cd projetoapirest
     ```

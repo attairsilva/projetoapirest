@@ -99,6 +99,8 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 2. Dentro da pasta /src, renomei o '.env.renomeie' para '.env'.
 
+3. Execute o ```Docker Desktop```.
+
 4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell```:
    ```
    docker-compose up -d

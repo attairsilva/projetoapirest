@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ServidorTemporarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $servidores = ServidorTemporario::with([
@@ -32,9 +30,7 @@ class ServidorTemporarioController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $erros = []; // Array para armazenar os erros
@@ -64,16 +60,16 @@ class ServidorTemporarioController extends Controller
                         if (empty($enderecoData['cidade_nome']) || empty($enderecoData['cidade_uf'])) {
                             $erros[] = "Cidade ID {$enderecoData['cid_id']} não encontrado, e nenhum nome de cidade e UF foi fornecido.";
                         } else {
-                            // Verifica se a cidade já existe no mesmo estado
+                            // Verifica se cidade já existe no mesmo estado
                             $cidadeExistente = Cidade::where('cid_nome', $enderecoData['cidade_nome'])
                                 ->where('cid_uf', $enderecoData['cidade_uf'])
                                 ->first();
 
                             if ($cidadeExistente) {
-                                // Se a cidade já existir no mesmo estado, adiciona um erro e não insere o endereço
+                                // adiciona um erro e não insere o endereço se a cidade já existir no mesmo estado
                                 $erros[] = "A cidade '{$enderecoData['cidade_nome']}' já está cadastrada no estado '{$enderecoData['cidade_uf']}' (ID: {$cidadeExistente->cid_id}). Utilize o ID informado no campo cid_id. Endereço não inserido.";
                             } else {
-                                // Cria a nova cidade
+
                                 $cidade = Cidade::create([
                                     'cid_uf' => $enderecoData['cidade_uf'],
                                     'cid_nome' => $enderecoData['cidade_nome'],
@@ -89,7 +85,7 @@ class ServidorTemporarioController extends Controller
                         }
                     }
 
-                    // Se a cidade não foi criada ou já existia, interrompe a inserção do endereço
+                    // interrompe a inserção do endereço  se a cidade não foi criada ou já existe,
                     if (!isset($cidade) || in_array("A cidade '{$enderecoData['cidade_nome']}' já está cadastrada", $erros)) {
                         $erros[] = "Não foi possível criar o endereço, cidade não foi criada, ou já existe uma cidade com este nome cadastrado, utilize o ID da Cidade, obtenha em rota /Cidades";
                     }else{
@@ -127,7 +123,7 @@ class ServidorTemporarioController extends Controller
 
             DB::commit();
 
-            // Recarregar o modelo com os relacionamentos para retornar os dados atualizados
+            // Carrega modelo e retorna os dados atualizados
             $servidorLancado = ServidorTemporario::with(['pessoa', 'pessoa.endereco', 'lotacao'])->find($pessoa->pes_id);
             return response()->json([
                 "message" => "Servidor Inserido",
@@ -145,13 +141,11 @@ class ServidorTemporarioController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Request $request)
     {
         $id=$request->input('pes_id');
-        $erros = []; // Array para armazenar os erros
+        $erros = [];
         $servidor = ServidorTemporario::with([
             'pessoa',
             'pessoa.endereco',
@@ -163,7 +157,7 @@ class ServidorTemporarioController extends Controller
             $erros[] = 'Servidor não encontrado para o ID informado';
         }
 
-        // return response()->json($servidor, 200);
+
         return response()->json([
             'message' => 'Busca por Servidor Temporario',
             'servidor' => $servidor,
@@ -173,15 +167,11 @@ class ServidorTemporarioController extends Controller
     }
 
 
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request)
     {
         $id=$request->input('pes_id');
 
-        $erros = []; // Array para armazenar os erros
+        $erros = [];
 
         $servidor = ServidorTemporario::with(['pessoa', 'pessoa.endereco', 'lotacao', 'foto'])->find($id);
 
@@ -267,7 +257,7 @@ class ServidorTemporarioController extends Controller
             }
         }
 
-        // Atualizar lotação e unidade
+
         if ($request->has('lotacao')) {
                     $lotacaoData = $request->lotacao;;
                     $unidadeExiste = Unidade::where('unid_id', $lotacaoData['unid_id'])->exists();
@@ -287,7 +277,7 @@ class ServidorTemporarioController extends Controller
 
         }
 
-            // Recarregar o modelo com os relacionamentos para retornar os dados atualizados
+            // Carrega modelo e retornar os dados atualizados
             $servidorAtualizado = ServidorTemporario::with(['pessoa', 'pessoa.endereco', 'lotacao'])->find($id);
 
             return response()->json([
@@ -299,9 +289,7 @@ class ServidorTemporarioController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Request $request)
     {
         $id = $request->input('pes_id');
@@ -310,7 +298,6 @@ class ServidorTemporarioController extends Controller
         if (!$servidor) {
             return response()->json(['error' => 'Servidor não encontrado'], 404);
         }
-
 
         // Encontrar todos os end_id relacionados ao pes_id em PessoaEndereco
         $enderecosIds = PessoaEndereco::where('pes_id', $id)->pluck('end_id');
@@ -324,18 +311,18 @@ class ServidorTemporarioController extends Controller
         }
 
         $fotos = FotoPessoa::where('pes_id', $id)->get();
-
+        // Exclui do MinIO
         if (!$fotos->isEmpty()) {
             foreach ($fotos as $foto) {
                 $hash = pathinfo($foto->hash, PATHINFO_BASENAME);
-                Storage::disk('s3')->delete("{$hash}"); // Exclui do MinIO
+                Storage::disk('s3')->delete("{$hash}");
                 $foto->delete(); // Exclui do banco
             }
         }
 
         FotoPessoa::where('pes_id', $id)->delete();
 
-        // Agora deletar o servidor
+        //   deletar o servidor
         $servidor->delete();
 
         return response()->json(['message' => 'Servidor deletado com sucesso'], 200);

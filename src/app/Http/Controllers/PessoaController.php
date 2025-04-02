@@ -9,7 +9,8 @@ class PessoaController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Não foi necessário implementar, as interações das tabelas relacionadas
+     * estão sendo realizadas em ServidorEfetivo e ServidorTemporario
      */
 
 

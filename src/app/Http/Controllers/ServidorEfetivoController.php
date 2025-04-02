@@ -189,7 +189,7 @@ class ServidorEfetivoController extends Controller
                 }
             }
 
-            // Se a cidade não foi criada ou já existia, interrompe a inserção do endereço
+            //  interrompe a inserção do endereço se a cidade não foi criada ou já existe,
             if (!isset($cidade) || in_array("A cidade '{$enderecoData['cidade_nome']}' já está cadastrada", $erros)) {
                 $erros[] = "Não foi possível criar o endereço, cidade não foi criada, ou já existe uma cidade com este nome cadastrado, utilize o ID da Cidade, obtenha em rota /Cidades";
             }else{
@@ -197,7 +197,6 @@ class ServidorEfetivoController extends Controller
                 // Remove os campos extras que não pertencem à tabela endereco
                 unset($enderecoData['cidade_nome'], $enderecoData['cidade_uf']);
 
-                //  cria o endereço
                 $novoEndereco = $servidor->pessoa->endereco()->create($enderecoData);
                 if (!$novoEndereco) {
                     $erros[] = "Não foi possível criar o endereço";
@@ -209,7 +208,7 @@ class ServidorEfetivoController extends Controller
 
         }
 
-        // lotação e unidade se fornecido, verifica existencia de unid_id
+        // verifica existencia de unid_id
         if ($request->has('lotacao')) {
             $lotacaoData = $request->lotacao;
             $unidadeExiste = Unidade::where('unid_id', $lotacaoData['unid_id'])->exists();
@@ -226,7 +225,7 @@ class ServidorEfetivoController extends Controller
             DB::commit();
 
 
-            // Recarregar o modelo com os relacionamentos para retornar os dados atualizados
+            // relacionamentos para retornar os dados atualizados
             $servidorLancado = ServidorEfetivo::with(['pessoa', 'pessoa.endereco', 'lotacao'])->find($pessoa->pes_id);
             return response()->json([
                 "message" => "Servidor Inserido",

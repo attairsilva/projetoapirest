@@ -1,6 +1,11 @@
 # Projeto API REST em PhP 
 
-Este repositório contém a implementação de uma API desenvolvida em Laravel para gerenciamento de servidores, unidades e lotações.
+Este repositório contém a implementação de uma API desenvolvida em (PHP) framework Laravel para gerenciamento de servidores, unidades e lotações.
+
+Foi criado para atender o PSS 02/2025/SEPLAG.
+
+Nome: Attair Batista da Silva
+CPF: 692.7*****-34
 
 ## 📌 Tecnologias Utilizadas
 

@@ -145,9 +145,7 @@ class UnidadeController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request)
     {
         $id=$request->input('unid_id');
@@ -222,9 +220,6 @@ class UnidadeController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Request $request)
     {
         try{

@@ -110,7 +110,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 ### 🚀 Recriando Containers
 
-   Abaixo estão comendos para apagar volumes e recriar imagens. Este procedimento pode fazer com que sejam necessários ajustar as configurações novamente para que a API funcione. Alguns constam abaixo:
+   Abaixo comandos para apagar volumes e recriar imagens. Este procedimento pode fazer com que sejam necessários ajustar as configurações novamente para que a API funcione. Tipo:
 
    1. Ecerrando Docker
       ```   
@@ -119,7 +119,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       "-v" opcional (a não ser que deseje remover os volumes)
       A ação para e remove os contêineres, redes criadas, volumes nomeados no arquivo docker-compose.yml.
 
-   2. Iniciando Docker com docker-compos.yml
+   2. Iniciando Docker com docker-compose.yml
       ```  
          docker-compose up --build -d 
       ``` 
@@ -134,7 +134,10 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    4. Se você apagou a pasta 'miniodata', crie novamente, e inicio o container.
    
-      Acesse a área de administrador do Minio http://127.0.0.1:9001/ - login: admin - senha: adminpassword
+      Acesse a área de administrador 
+      Minio http://127.0.0.1:9001/ 
+      Login: admin 
+      Senha: adminpassword
       
       Crie o bucket 'Uploads', public ou personalize. Recomendo utilizar a Política abaixo para o Bucket a ser criado:
 

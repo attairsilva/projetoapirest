@@ -77,10 +77,10 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    Caso encontre um erro, é poque exigiu que  habilite os recursos de 'Máquina Virtual do Windows', existem instruções mais detalhadas em https://aka.ms/wsl2-install. 
    
-   Verifique se a virtualização na BIOS de seu equipamento está ativada, e depois habilite o Virtual Machine Platform no Windows, execute ```PowerShell``` o comandos:
+   Verifique se a virtualização na BIOS de seu equipamento está ativada, e depois habilite o Virtual Machine Platform no Windows, execute no  ```PowerShell``` o comandos:
 
    ```
-    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+      dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
    ```
    
    ```
@@ -97,7 +97,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    
    E execute novamente: ```wsl --install``` 
 
-   Depois de resolver a habilitação do WLS, instale o Docker-Compose, no ```PowerShell``` em modo administrador e execute o seguinte comando:
+   Depois de resolver a habilitação do WLS, instale o Docker-Compose, no ```PowerShell``` em modo administrador com seguinte comando:
 
    ```
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe

@@ -56,7 +56,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 1. Docker & Docker-Compose:
 
-   # No ambiente Windows
+   ### No ambiente Windows
    
    Verifique se o Docker está instalado, execute o seguinte comandos no  ```PowerShell```:
    ```
@@ -101,7 +101,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    
    E execute novamente: ```wsl --install``` 
 
-   Depois de resolver a habilitação do WLS, instale o Docker-Compose, no ```PowerShell``` em modo administrador com seguinte comando:
+   Depois de resolver a habilitação do WLS, caso o ```docker-compose``` não esteja instalado, no ```PowerShell``` modo administrador execute o seguinte comando:
 
    ```
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe

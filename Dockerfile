@@ -46,11 +46,23 @@ RUN mkdir -p /var/www/html/.mc && \
 WORKDIR /var/www/html
 
 # Instale o Composer (corrigido)
-# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-# RUN composer install
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install
 
 # Instale league/flysystem-aws-s3-v3
 # RUN composer require league/flysystem-aws-s3-v3
+
+# Instala as dependências do Laravel
+RUN composer install --no-dev --no-interaction --prefer-dist
+
+# Copia e configura o arquivo .env
+RUN cp .env.example .env && php artisan key:generate
+
+# Ajusta permissões para a pasta de armazenamento e cache
+# RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Habilita o mod_rewrite do Apache (necessário para Laravel)
+# RUN a2enmod rewrite
 
 # Ajudar Horario Container
 RUN ln -snf /usr/share/zoneinfo/America/Cuiaba /etc/localtime && echo "America/Cuiaba" > /etc/timezone
@@ -63,5 +75,5 @@ EXPOSE 80
 
 # Define o entrypoint  - script personalizado
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-# Inicie o Apache
+# Inicie o Apache 
 # CMD ["apache2-foreground"]

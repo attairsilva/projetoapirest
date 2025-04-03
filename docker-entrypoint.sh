@@ -23,6 +23,7 @@ if [ ! -f ".env" ]; then
     else
         echo "Erro: Arquivo env.exemplo não encontrado!"
         echo "Diretório atual: $(pwd)"
+        ls -lah  # Lista os arquivos no diretório atual
         
         
 

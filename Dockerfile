@@ -55,8 +55,10 @@ RUN composer require league/flysystem-aws-s3-v3
 # Instala as dependências do Laravel
 RUN composer install --no-dev --no-interaction --prefer-dist
 
-# Copia e configura o arquivo .env
-RUN cp /var/www/html/.env.example /var/www/html/.env && php artisan key:generate
+# Renomeia o .env Cria Chave Laravel e Recarrega Migrate com Seeders
+RUN RUN mv /var/www/html/.env.renomeie /var/www/html/.env \
+    && php artisan key:generate \
+    && php artisan migrate:refresh --seed
 
 # Ajusta permissões para a pasta de armazenamento e cache
 # RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache

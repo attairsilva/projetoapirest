@@ -12,8 +12,8 @@ CPF: 692.7*****-34
 - **Laravel** - Framework PHP para desenvolvimento backend
 - **PostgreSQL** - Banco de dados relacional
 - **MinIO** - Armazenamento de objetos compatível com S3
-- **Docker** - Contêineres, na versão 27.5.1
-- **Docker Compose** - Na versão 2.32.4
+- **Docker** - Contêineres - v27.5.1
+- **Docker Compose** - v2.18.0
 
 
 ## 📂 Estrutura do Projeto
@@ -165,7 +165,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
       docker-compose --version
    ```
 
-   #### CLONNANDO O PROJETO COM GIT
+   #### CLONNANDO O PROJETO 
 
    Crie uma pasta e acesse:
    ```
@@ -186,19 +186,11 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 ## 📌 Edições Necessárias e Execução do Docker
 
-1. Acesse a pasta do projeto:
+1. Inicie o ```Docker Desktop``` antes de prosseguir.
+
+2. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell``` executando:
    ```
-   cd caminho_onde_descompactou\projetoapirest-main
-
-   ```
-
-2. Dentro da pasta /src, renomei o '.env.renomeie' para '.env'.
-
-3. Inicie o ```Docker Desktop``` antes de prosseguir.
-
-4. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell``` executando:
-   ```
-   sudo docker-compose up -d
+   sudo docker-compose up 
    ```
 
 5. Para encerrar os contêineres, com Docker Compose:
@@ -242,17 +234,17 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    3. Quando for preciso recriar o banco de dados, execute, quando o contair estiver ativo, o comando abaixo, que acessa o containr e executa o ```php artisan migrate:fresh --seed``` :
       ```
-      docker-compose exec app php artisan migrate:fresh --seed
+       docker-compose exec app php artisan migrate:fresh --seed
       ```
       O migrate:fresh apaga todas as tabelas e recria do zero o banco de dados antes de rodar os seeders, o seeders preenche o banco automático com dados aleatórios. Para não preencher o banco e mante-lo vazio voce pode subtrair o '--seed'
 
    4. Se você apagou a pasta 'miniodata', crie novamente, e inicio o container.
-   
-      Acesse a área de administrador 
-      Minio http://127.0.0.1:9001/ 
-      Login: admin 
-      Senha: adminpassword
-      
+      ```
+        Acesse a área de administrador 
+        Minio http://127.0.0.1:9001/ 
+        Login: admin 
+        Senha: adminpassword
+      ```
       Crie o bucket 'Uploads', public ou personalize. Recomendo utilizar a Política abaixo para o Bucket a ser criado:
 
       ```
@@ -291,11 +283,24 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
             }
       ```
 
-       No menu "Access Keys" na administrador do Minio, gere as chaves  e copie, substituindo no  ``` /src/.env ```:
+       No menu "Access Keys" no administrador do Minio, gere as chaves  e copie, substituindo no  ``` /src/env.renomeie ```:
       ```
          AWS_ACCESS_KEY_ID=Codigo do Access Key
          AWS_SECRET_ACCESS_KEY=Codigo do Secret Key
       ```
+
+      Encerre o conainer:
+
+      ```   
+         docker-compose down -v     
+      ```
+
+      Inicia novamente utilizando   ``` --build ```:
+      
+      ```  
+         docker-compose up --build -d 
+      ``` 
+
 
 ---
 

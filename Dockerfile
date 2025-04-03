@@ -28,9 +28,9 @@ COPY docker-entrypoint.sh /usr/local/bin/
 # Torna Entrypoint executável
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
-    && chmod +x /usr/local/bin/mc \
-    && ls -l /usr/local/bin/
+# RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
+#     && chmod +x /usr/local/bin/mc \
+#     && ls -l /usr/local/bin/
     
 # Copia os arquivos do projeto para o contêiner
 COPY src/ /var/www/html
@@ -39,9 +39,9 @@ COPY src/ /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
 # Define permissões
-RUN mkdir -p /var/www/html/.mc && \
-    chown -R root:root /var/www/html/.mc && \
-    chmod 700 /var/www/html/.mc
+# RUN mkdir -p /var/www/html/.mc && \
+#     chown -R root:root /var/www/html/.mc && \
+#     chmod 700 /var/www/html/.mc
 
 WORKDIR /var/www/html
 
@@ -50,13 +50,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install
 
 # Instale league/flysystem-aws-s3-v3
-# RUN composer require league/flysystem-aws-s3-v3
+RUN composer require league/flysystem-aws-s3-v3
 
 # Instala as dependências do Laravel
 RUN composer install --no-dev --no-interaction --prefer-dist
 
 # Copia e configura o arquivo .env
-RUN cp .env.example .env && php artisan key:generate
+RUN cp /var/www/html/.env.example /var/www/html/.env && php artisan key:generate
 
 # Ajusta permissões para a pasta de armazenamento e cache
 # RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache

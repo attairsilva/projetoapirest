@@ -34,8 +34,8 @@ php artisan key:generate
 
 # Executa as migrações
 # echo "Executando Migrates..."
-composer dump-autoload
-php artisan config:clear
+# composer dump-autoload
+# php artisan config:clear
 php artisan migrate:refresh --seed 
 
 # Inicia o servidor Apache **somente após todas as configurações**

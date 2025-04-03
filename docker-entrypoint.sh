@@ -16,10 +16,10 @@ while ! curl -s http://minio:9000/minio/health/live >/dev/null; do
 done
 
 # Verifica se o .env já existe, se não, copia o env.exemplo
-if [ ! -f ".env" ]; then
-    if [ -f "env.exemplo" ]; then
+if [ ! -f "/.env" ]; then
+    if [ -f "/env.exemplo" ]; then
         echo "Criando arquivo .env..."
-        cp "env.exemplo" ".env"
+        cp "/env.exemplo" "/.env"
     else
         echo "Erro: Arquivo env.exemplo não encontrado!"
         exit 1

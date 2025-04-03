@@ -22,11 +22,8 @@ if [ ! -f ".env" ]; then
         cp ".env.renomeie" ".env"
     else
         echo "Erro: Arquivo env.exemplo não encontrado!"
-        echo "Diretório atual: $(pwd)"
-        ls -lah  # Lista os arquivos no diretório atual
-        
-        
-
+        # echo "Diretório atual: $(pwd)"
+        # ls -lah  # Lista os arquivos no diretório atual
         exit 1
     fi
 fi
@@ -36,8 +33,8 @@ echo "Gerando chave do Laravel..."
 php artisan key:generate
 
 # Executa as migrações
-echo "Executando Migrates..."
-php artisan migrate --seed --force
+# echo "Executando Migrates..."
+# php artisan migrate:refresh --seed --force
 
 # Inicia o servidor Apache **somente após todas as configurações**
 echo "Iniciando Apache..."

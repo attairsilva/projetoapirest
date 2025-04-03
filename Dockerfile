@@ -47,16 +47,13 @@ WORKDIR /var/www/html
 
 # Instale o Composer (corrigido)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install
+# RUN composer install
 
 # Instale league/flysystem-aws-s3-v3
 # RUN composer require league/flysystem-aws-s3-v3
 
 # Instala as dependências do Laravel
 RUN composer install --no-dev --no-interaction --prefer-dist
-
-# Renomeia o .env Cria Chave Laravel e Recarrega Migrate com Seeders
-RUN cp /var/www/html/env.renomeie /var/www/html/.env 
 
 # Ajusta permissões para a pasta de armazenamento e cache
 # RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache

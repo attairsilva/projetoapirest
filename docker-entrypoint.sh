@@ -27,7 +27,11 @@ while ! curl -s http://minio:9000/minio/health/live >/dev/null; do
 done
 echo "MinIO está pronto!"
 
-echo "Banco de dados pronto!"
+# Copia e renomeia o arquivo .env se ele não existir
+if [ ! -f /var/www/html/.env ]; then
+    echo "Criando arquivo .env..."
+    cp /var/www/html/env.exemplo /var/www/html/.env
+fi
 
 # Gera a chave do Laravel
 echo "Gerando chave do Laravel..."

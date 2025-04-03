@@ -56,7 +56,7 @@ RUN composer install
 RUN composer install --no-dev --no-interaction --prefer-dist
 
 # Renomeia o .env Cria Chave Laravel e Recarrega Migrate com Seeders
-RUN cp /var/www/html/.env.renomeie /.env 
+RUN cp /var/www/html/env.renomeie /var/www/html/.env 
 
 # Ajusta permissões para a pasta de armazenamento e cache
 # RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache

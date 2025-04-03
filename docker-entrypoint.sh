@@ -30,7 +30,7 @@ echo "MinIO está pronto!"
 # Copia e renomeia o arquivo .env se ele não existir
 if [ ! -f /var/www/html/.env ]; then
     echo "Criando arquivo .env..."
-    cp /var/www/html/env.exemplo /var/www/html/.env
+    mv env.exemplo .env
 fi
 
 # Gera a chave do Laravel

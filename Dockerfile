@@ -50,7 +50,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install
 
 # Instale league/flysystem-aws-s3-v3
-RUN composer require league/flysystem-aws-s3-v3
+# RUN composer require league/flysystem-aws-s3-v3
 
 # Instala as dependências do Laravel
 RUN composer install --no-dev --no-interaction --prefer-dist

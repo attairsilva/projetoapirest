@@ -56,7 +56,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-dev --no-interaction --prefer-dist && composer require fakerphp/faker --dev
 # Instala as dependências do Laravel
 RUN composer require fakerphp/faker --dev
-RUN composer require fzaninotto/faker --dev
+
 
 # Ajusta permissões para a pasta de armazenamento e cache
 # RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache

@@ -53,7 +53,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # RUN composer require league/flysystem-aws-s3-v3
 
 # Instala as dependências do Laravel
-RUN composer install --no-dev --no-interaction --prefer-dist && composer require fakerphp/faker --dev
+# RUN composer install --no-dev --no-interaction --prefer-dist && composer require fakerphp/faker --dev
+RUN composer install --no-dev  && composer require fakerphp/faker --dev
 
 # Limpa o cache do autoload
 RUN composer dump-autoload

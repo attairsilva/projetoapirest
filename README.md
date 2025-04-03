@@ -186,12 +186,12 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
 1. Inicie o ```Docker Desktop``` antes de prosseguir.
 
-2. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell``` executando:
+2. Suba os contêineres com Docker Compose no ```CMD``` ou ```PowerShell``` executando o código abaixo quanto estiver na pasta do projeto:
    ```
    sudo docker-compose up 
    ```
 
-5. Para encerrar os contêineres, com Docker Compose:
+5. Para encerrar os contêineres, com execute:
    ```
    sudo docker-compose down
    ```

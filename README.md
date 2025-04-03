@@ -108,7 +108,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe
    ```
 
-   #### Baixando o Projeto:
+   #### BAIXANDO O PROJETO
 
    Baixe o repositório do Projeto:
    - https://github.com/attairsilva/projetoapirest/archive/refs/heads/main.zip
@@ -182,7 +182,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```
 
 
-## 📌 Edições Necessárias e Execução do Docker
+## 📌 Execução do Docker
 
 1. Inicie o ```Docker Desktop``` antes de prosseguir.
 

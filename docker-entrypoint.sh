@@ -15,17 +15,11 @@ while ! curl -s http://minio:9000/minio/health/live >/dev/null; do
   fi
 done
 
-APP_DIR="/var/www/html"
-
-# Acessa o diretório do Laravel
-cd "$APP_DIR"
-echo "Diretório depois de cd: $(pwd)"
-
 # Copia o .env se ele não existir
-if [ ! -f "$APP_DIR/.env" ]; then
-    if [ -f "$APP_DIR/env.exemplo" ]; then
+if [ ! -f ".env" ]; then
+    if [ -f "env.exemplo" ]; then
         echo "Criando arquivo .env..."
-        cp "$APP_DIR/env.exemplo" "$APP_DIR/.env"
+        cp "env.exemplo" ".env"
     else
         echo "Erro: Arquivo env.exemplo não encontrado!"
         echo "Diretório atual: $(pwd)"

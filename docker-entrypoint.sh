@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# Inicia o servidor Apache
-echo "Iniciando Apache..."
-exec apache2-foreground
-
 # Configura o tempo limite para aguardar iniciar o PostgreSQL
 TIMEOUT=30
 TIMER=0
@@ -28,8 +24,8 @@ php artisan key:generate
 
 # Executa as migrações
 echo "Executando Migrates..."
-php artisan migrate --force
+php artisan migrate --seed --force
 
-
-
-
+# Inicia o servidor Apache **somente após todas as configurações**
+echo "Iniciando Apache..."
+exec apache2-foreground

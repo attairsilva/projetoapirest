@@ -57,9 +57,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-dev  \
     && composer require fakerphp/faker --dev
 
-# Limpa o cache do autoload
-RUN composer dump-autoload
-
 # Ajusta permissões para a pasta de armazenamento e cache
 # RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 

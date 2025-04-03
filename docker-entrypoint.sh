@@ -17,9 +17,9 @@ done
 
 # Copia o .env se ele não existir
 if [ ! -f ".env" ]; then
-    if [ -f "env.exemplo" ]; then
+    if [ -f ".env.renomeie" ]; then
         echo "Criando arquivo .env..."
-        cp "env.exemplo" ".env"
+        cp ".env.renomeie" ".env"
     else
         echo "Erro: Arquivo env.exemplo não encontrado!"
         echo "Diretório atual: $(pwd)"

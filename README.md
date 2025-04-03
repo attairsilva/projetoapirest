@@ -100,11 +100,9 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
 
    Se mesmo habilitando o suporte a virtualização na Bios, não obteve sucesso, pode ser que sua versão do Windows não cumpre os requisitos para o Hyper-V, é necessário uma versão que suporte.
 
-   Agora, se tudo correu bem até aqui, execute no ```PowerShell``` o seguinte comando: 
+   Agora, se tudo correu bem até aqui, execute no ```PowerShell``` modo administrador, o seguinte comando novamente: ```wsl --install``` 
 
-   No ```PowerShell```, modo administrador, execute o seguinte comando novamente: ```wsl --install``` 
-
-   Depois de resolver a habilitação do WLS, caso o ```docker-compose``` não esteja instalado, no ```PowerShell``` modo administrador execute o seguinte comando:
+   Depois de resolver a habilitação do WLS, Hyper-V, Máquina Virtual, caso o ```docker-compose``` não esteja instalado, no ```PowerShell``` modo administrador, execute o seguinte comando:
 
    ```
      Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe

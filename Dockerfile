@@ -56,7 +56,7 @@ RUN composer require league/flysystem-aws-s3-v3
 RUN composer install --no-dev --no-interaction --prefer-dist
 
 # Renomeia o .env Cria Chave Laravel e Recarrega Migrate com Seeders
-RUN RUN mv /var/www/html/.env.renomeie /var/www/html/.env \
+RUN mv /var/www/html/.env.renomeie /var/www/html/.env \
     && php artisan key:generate \
     && php artisan migrate:refresh --seed
 

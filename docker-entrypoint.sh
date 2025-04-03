@@ -6,12 +6,12 @@ TIMEOUT=30
 TIMER=0
 
 echo "Aguardando o banco PostgreSQL iniciar..."
-while ! pg_isready -h db -p 5432 -U user; do
+while ! pg_isready -h postgres_db -p 5432 -U user; do
   sleep 2
-  TIMER=$((TIMER+2))
+  TIMER=$((TIMER + 2))
 
   if [ $TIMER -ge $TIMEOUT ]; then
-    echo "O banco PostgreSQL não esta respondendo."
+    echo "O banco PostgreSQL não está respondendo após $TIMEOUT segundos."
     exit 1
   fi
 done

@@ -70,6 +70,21 @@ RUN ln -snf /usr/share/zoneinfo/America/Cuiaba /etc/localtime && echo "America/C
 # Define o ServerName diretamente no apache2.conf
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+# G.env exista ANTES dos comandos do artisan
+RUN if [ ! -f ".env" ]; then \
+        if [ -f ".env.renomeie" ]; then \
+            echo "Copiando .env.renomeie para .env"; \
+            cp .env.renomeie .env; \
+        else \
+            echo "Arquivo .env.renomeie não encontrado!"; \
+            exit 1; \
+        fi \
+    ; fi
+
+
+RUN php artisan key:generate \
+    && php artisan migrate --seed
+
 # Exponha a porta 80
 EXPOSE 80
 

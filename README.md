@@ -20,7 +20,9 @@ CPF: 692.7*****-34
 
 - `miniodata/` - Dados do Minio
 - `src/` - Contém o código-fonte Laravel
+- `aguardar-banco.sh` - Aguarda o banco estar ativo para popular banco na primeira execução
 - `docker-compose.yml` - Configuração do ambiente Docker
+- `docker-entrypoint.sh` - Entrypoint persobalizado
 - `Dockerfile` - Configuração do contêiner da aplicação
 - `apache-laravel.conf` - Configuração personalizada apache
 

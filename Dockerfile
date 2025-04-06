@@ -24,7 +24,7 @@ RUN a2enmod rewrite
 COPY apache-laravel.conf /etc/apache2/sites-available/000-default.conf
 
 # Entrypoint personalizado
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY docker-entrypoint.sh /usr/local/bin
 # Aguardar banco personalizado
 COPY aguardar-banco.sh /usr/local/bin/aguardar-banco.sh
 

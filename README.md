@@ -225,7 +225,7 @@ Esta endpoints da API gerencia uploads de fotografias para pessoas, sejam Servid
    ```Usuário: admin```
    ```Senha: adminpassword```
 
-   A documentação completa de uso da API estão nas primeiras instruções dete Readme.
+   A documentação completa de uso da API estão nas primeiras instruções deste Readme.
 
 
 ### 🚀 Recriando Containers

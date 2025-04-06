@@ -23,7 +23,7 @@ CPF: 692.7*****-34
 - `docker-compose.yml` - Configuração do ambiente Docker
 - `Dockerfile` - Configuração do contêiner da aplicação
 - `apache-laravel.conf` - Configuração personalizada apache
-- `vendor/` - Dependências do Laravel
+
 ## 🔑 Autenticação
 
 A API utiliza autenticação. Para acessar os endpoints protegidos, é necessário autenticar-se e fornecer o token no cabeçalho das requisições. Cada token gerado expira em 5 (cinco) minutos.

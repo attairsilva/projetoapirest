@@ -24,14 +24,12 @@ RUN a2enmod rewrite
 COPY apache-laravel.conf /etc/apache2/sites-available/000-default.conf
 
 # Entrypoint personalizado
-COPY docker-entrypoint.sh /usr/local/bin
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 # Aguardar banco personalizado
 COPY aguardar-banco.sh /usr/local/bin/aguardar-banco.sh
 
-# Torna Entrypoint executável
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-# Torna Aguarda Banco Executável
-RUN chmod +x /usr/local/bin/aguardar-banco.sh
+# Torna Entrypoint e Aguarda Banco Executável
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/aguardar-banco.sh
 
 # RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
 #     && chmod +x /usr/local/bin/mc \

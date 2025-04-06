@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     && docker-php-ext-configure zip \
     && docker-php-ext-install pdo pdo_pgsql zip \
-    && apt-get install -y netcat-openbsd
+    && apt-get install -y netcat-openbsd \
+    && apt-get install dos2unix
 
 # Minio Client (mc)
 # RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
@@ -28,8 +29,13 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 # Aguardar banco personalizado
 COPY aguardar-banco.sh /usr/local/bin/aguardar-banco.sh
 
+RUN dos2unix docker-entrypoint.sh
+RUN dos2unix aguardar-banco.sh
+
 # Torna Entrypoint e Aguarda Banco Executável
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/aguardar-banco.sh
+
+
 
 # RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
 #     && chmod +x /usr/local/bin/mc \

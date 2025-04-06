@@ -8,15 +8,11 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     wget \
     unzip \
+    dos2unix \
     curl \
     && docker-php-ext-configure zip \
     && docker-php-ext-install pdo pdo_pgsql zip \
-    && apt-get install -y netcat-openbsd \
-    && apt-get install dos2unix
-
-# Minio Client (mc)
-# RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
-# && chmod +x /usr/local/bin/mc
+    && apt-get install -y netcat-openbsd  
 
 # Modo Reescrita do Apache
 RUN a2enmod rewrite
@@ -25,34 +21,23 @@ RUN a2enmod rewrite
 COPY apache-laravel.conf /etc/apache2/sites-available/000-default.conf
 
 # Entrypoint personalizado
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY docker-entrypoint.sh /usr/local/bin
 # Aguardar banco personalizado
-COPY aguardar-banco.sh /usr/local/bin/aguardar-banco.sh
-
-RUN dos2unix docker-entrypoint.sh
-RUN dos2unix aguardar-banco.sh
+COPY aguardar-banco.sh /usr/local/bin
 
 # Torna Entrypoint e Aguarda Banco Executável
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/aguardar-banco.sh
 
-
-
-# RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
-#     && chmod +x /usr/local/bin/mc \
-#     && ls -l /usr/local/bin/
-    
 # Copia os arquivos do projeto para o contêiner
 COPY src/ /var/www/html
 
 # Permissões corretas
 RUN chown -R www-data:www-data /var/www/html
 
-# Define permissões
-# RUN mkdir -p /var/www/html/.mc && \
-#     chown -R root:root /var/www/html/.mc && \
-#     chmod 700 /var/www/html/.mc
-
 WORKDIR /var/www/html
+
+# Corrigir scripts com CRLF
+RUN dos2unix /usr/local/bin/docker-entrypoint.sh /usr/local/bin/aguardar-banco.sh
 
 # Instale o Composer (corrigido)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -66,12 +51,6 @@ RUN composer install --no-dev --no-interaction --prefer-dist && composer require
 # Instala as dependências do Laravel
 RUN composer require fakerphp/faker --dev
 
-
-# Ajusta permissões para a pasta de armazenamento e cache
-# RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Habilita o mod_rewrite do Apache (necessário para Laravel)
-# RUN a2enmod rewrite
 
 # Ajudar Horario Container
 RUN ln -snf /usr/share/zoneinfo/America/Cuiaba /etc/localtime && echo "America/Cuiaba" > /etc/timezone

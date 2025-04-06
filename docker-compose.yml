@@ -17,6 +17,10 @@ services:
     environment:
       - UPLOAD_DIR=/var/www/html/storage
       - TZ=America/Cuiaba
+      - DB_HOST=db
+      - DB_PORT=5432
+    command: ["/usr/local/bin/aguardar-banco.sh", "apache2-foreground"]
+      
       
 
 
@@ -33,7 +37,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      -  ./pgdata:/var/lib/postgresql/data  
+      - /var/lib/postgresql/data 
 
 
   minio:

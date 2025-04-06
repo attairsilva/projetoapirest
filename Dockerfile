@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     && docker-php-ext-configure zip \
-    && docker-php-ext-install pdo pdo_pgsql zip
+    && docker-php-ext-install pdo pdo_pgsql zip \
+    && apt-get install -y netcat-openbsd
 
 # Minio Client (mc)
 # RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
@@ -23,10 +24,14 @@ RUN a2enmod rewrite
 COPY apache-laravel.conf /etc/apache2/sites-available/000-default.conf
 
 # Entrypoint personalizado
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+# Aguardar banco personalizado
+COPY aguardar-banco.sh /usr/local/bin/aguardar-banco.sh
 
 # Torna Entrypoint executável
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+# Torna Aguarda Banco Executável
+RUN chmod +x /usr/local/bin/aguardar-banco.sh
 
 # RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc \
 #     && chmod +x /usr/local/bin/mc \
@@ -82,8 +87,7 @@ RUN if [ ! -f ".env" ]; then \
     ; fi
 
 
-RUN php artisan key:generate \
-    && php artisan migrate --seed
+RUN php artisan key:generate
 
 # Exponha a porta 80
 EXPOSE 80
